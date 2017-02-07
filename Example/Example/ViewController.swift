@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import WebKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        _webView.frame = self.view.frame
+
+        self.view.addSubview(_webView)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    private var _webView: WKWebView = {
+        let view = WKWebView()
+        let url = URL(string: "https://github.com")
+        let request = URLRequest(url: url!)
+        view.load(request)
+        return view
+    }()
 }
 

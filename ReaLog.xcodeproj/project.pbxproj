@@ -10,6 +10,10 @@
 		356E6D4A1E49B095007F76C9 /* ReaLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356E6D401E49B095007F76C9 /* ReaLog.framework */; };
 		356E6D4F1E49B095007F76C9 /* ReaLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D4E1E49B095007F76C9 /* ReaLogTests.swift */; };
 		356E6D511E49B095007F76C9 /* ReaLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 356E6D431E49B095007F76C9 /* ReaLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		356E6D971E49BACF007F76C9 /* ReaLogWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D941E49BACF007F76C9 /* ReaLogWindow.swift */; };
+		356E6D981E49BACF007F76C9 /* ReaLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D951E49BACF007F76C9 /* ReaLogViewController.swift */; };
+		356E6D991E49BACF007F76C9 /* ReaLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D961E49BACF007F76C9 /* ReaLogView.swift */; };
+		356E6D9B1E49BB7D007F76C9 /* ReaLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D9A1E49BB7D007F76C9 /* ReaLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		356E6D491E49B095007F76C9 /* ReaLogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReaLogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		356E6D4E1E49B095007F76C9 /* ReaLogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaLogTests.swift; sourceTree = "<group>"; };
 		356E6D501E49B095007F76C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		356E6D941E49BACF007F76C9 /* ReaLogWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaLogWindow.swift; sourceTree = "<group>"; };
+		356E6D951E49BACF007F76C9 /* ReaLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaLogViewController.swift; sourceTree = "<group>"; };
+		356E6D961E49BACF007F76C9 /* ReaLogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaLogView.swift; sourceTree = "<group>"; };
+		356E6D9A1E49BB7D007F76C9 /* ReaLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +79,11 @@
 		356E6D421E49B095007F76C9 /* ReaLog */ = {
 			isa = PBXGroup;
 			children = (
-				356E6D431E49B095007F76C9 /* ReaLog.h */,
-				356E6D441E49B095007F76C9 /* Info.plist */,
+				356E6D9A1E49BB7D007F76C9 /* ReaLog.swift */,
+				356E6D941E49BACF007F76C9 /* ReaLogWindow.swift */,
+				356E6D951E49BACF007F76C9 /* ReaLogViewController.swift */,
+				356E6D961E49BACF007F76C9 /* ReaLogView.swift */,
+				356E6D931E49BABB007F76C9 /* Support Files */,
 			);
 			path = ReaLog;
 			sourceTree = "<group>";
@@ -84,6 +95,15 @@
 				356E6D501E49B095007F76C9 /* Info.plist */,
 			);
 			path = ReaLogTests;
+			sourceTree = "<group>";
+		};
+		356E6D931E49BABB007F76C9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				356E6D431E49B095007F76C9 /* ReaLog.h */,
+				356E6D441E49B095007F76C9 /* Info.plist */,
+			);
+			name = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +169,7 @@
 					356E6D3F1E49B095007F76C9 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = GAMBUDTSDH;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					356E6D481E49B095007F76C9 = {
@@ -198,6 +219,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				356E6D981E49BACF007F76C9 /* ReaLogViewController.swift in Sources */,
+				356E6D9B1E49BB7D007F76C9 /* ReaLog.swift in Sources */,
+				356E6D971E49BACF007F76C9 /* ReaLogWindow.swift in Sources */,
+				356E6D991E49BACF007F76C9 /* ReaLogView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +347,7 @@
 		356E6D551E49B095007F76C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = GAMBUDTSDH;
@@ -334,6 +360,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pointerfly.ReaLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,6 +368,7 @@
 		356E6D561E49B095007F76C9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = GAMBUDTSDH;
@@ -360,6 +388,7 @@
 		356E6D581E49B095007F76C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = GAMBUDTSDH;
 				INFOPLIST_FILE = ReaLogTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +401,7 @@
 		356E6D591E49B095007F76C9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = GAMBUDTSDH;
 				INFOPLIST_FILE = ReaLogTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -400,6 +430,7 @@
 				356E6D561E49B095007F76C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		356E6D571E49B095007F76C9 /* Build configuration list for PBXNativeTarget "ReaLogTests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +439,7 @@
 				356E6D591E49B095007F76C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
