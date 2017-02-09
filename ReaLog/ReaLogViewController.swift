@@ -16,5 +16,5 @@ class ReaLogViewController: UIViewController {
         self.view.addSubview(logView)
     }
 
-    let logView = ReaLogView()
+    let logView = FloatingBallView()
 }

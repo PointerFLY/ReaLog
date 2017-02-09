@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol ReaLogWindowDelegate {
+    func reaLogWindowShouldAcceptTouch(window: ReaLogWindow) -> Bool
+}
+
 open class ReaLogWindow: UIWindow {
-    
+
+    var delegate: ReaLogWindowDelegate?
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -23,6 +29,7 @@ open class ReaLogWindow: UIWindow {
     }
 
     open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+//        return (delegate != nil) ? delegate!.reaLogWindowShouldAcceptTouch(window: self) : false
         return true
     }
 }

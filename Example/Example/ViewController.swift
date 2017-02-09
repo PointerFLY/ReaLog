@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WKNavigationDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +21,14 @@ class ViewController: UIViewController {
 
     private var _webView: WKWebView = {
         let view = WKWebView()
-        let url = URL(string: "https://github.com")
+        let url = URL(string: "https://m.taobao.com")
         let request = URLRequest(url: url!)
         view.load(request)
         return view
     }()
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+
+    }
 }
 

@@ -12,7 +12,7 @@
 		356E6D511E49B095007F76C9 /* ReaLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 356E6D431E49B095007F76C9 /* ReaLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		356E6D971E49BACF007F76C9 /* ReaLogWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D941E49BACF007F76C9 /* ReaLogWindow.swift */; };
 		356E6D981E49BACF007F76C9 /* ReaLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D951E49BACF007F76C9 /* ReaLogViewController.swift */; };
-		356E6D991E49BACF007F76C9 /* ReaLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D961E49BACF007F76C9 /* ReaLogView.swift */; };
+		356E6D991E49BACF007F76C9 /* FloatingBallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D961E49BACF007F76C9 /* FloatingBallView.swift */; };
 		356E6D9B1E49BB7D007F76C9 /* ReaLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D9A1E49BB7D007F76C9 /* ReaLog.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +35,7 @@
 		356E6D501E49B095007F76C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		356E6D941E49BACF007F76C9 /* ReaLogWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaLogWindow.swift; sourceTree = "<group>"; };
 		356E6D951E49BACF007F76C9 /* ReaLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaLogViewController.swift; sourceTree = "<group>"; };
-		356E6D961E49BACF007F76C9 /* ReaLogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaLogView.swift; sourceTree = "<group>"; };
+		356E6D961E49BACF007F76C9 /* FloatingBallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingBallView.swift; sourceTree = "<group>"; };
 		356E6D9A1E49BB7D007F76C9 /* ReaLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +82,7 @@
 				356E6D9A1E49BB7D007F76C9 /* ReaLog.swift */,
 				356E6D941E49BACF007F76C9 /* ReaLogWindow.swift */,
 				356E6D951E49BACF007F76C9 /* ReaLogViewController.swift */,
-				356E6D961E49BACF007F76C9 /* ReaLogView.swift */,
+				356E6D961E49BACF007F76C9 /* FloatingBallView.swift */,
 				356E6D931E49BABB007F76C9 /* Support Files */,
 			);
 			path = ReaLog;
@@ -222,7 +222,7 @@
 				356E6D981E49BACF007F76C9 /* ReaLogViewController.swift in Sources */,
 				356E6D9B1E49BB7D007F76C9 /* ReaLog.swift in Sources */,
 				356E6D971E49BACF007F76C9 /* ReaLogWindow.swift in Sources */,
-				356E6D991E49BACF007F76C9 /* ReaLogView.swift in Sources */,
+				356E6D991E49BACF007F76C9 /* FloatingBallView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +356,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ReaLog/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pointerfly.ReaLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -377,6 +378,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ReaLog/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pointerfly.ReaLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
