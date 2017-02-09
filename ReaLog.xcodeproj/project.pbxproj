@@ -10,10 +10,11 @@
 		356E6D4A1E49B095007F76C9 /* ReaLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356E6D401E49B095007F76C9 /* ReaLog.framework */; };
 		356E6D4F1E49B095007F76C9 /* ReaLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D4E1E49B095007F76C9 /* ReaLogTests.swift */; };
 		356E6D511E49B095007F76C9 /* ReaLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 356E6D431E49B095007F76C9 /* ReaLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		356E6D971E49BACF007F76C9 /* ReaLogWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D941E49BACF007F76C9 /* ReaLogWindow.swift */; };
-		356E6D981E49BACF007F76C9 /* ReaLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D951E49BACF007F76C9 /* ReaLogViewController.swift */; };
+		356E6D971E49BACF007F76C9 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D941E49BACF007F76C9 /* Window.swift */; };
+		356E6D981E49BACF007F76C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D951E49BACF007F76C9 /* ViewController.swift */; };
 		356E6D991E49BACF007F76C9 /* FloatingBallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D961E49BACF007F76C9 /* FloatingBallView.swift */; };
 		356E6D9B1E49BB7D007F76C9 /* ReaLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D9A1E49BB7D007F76C9 /* ReaLog.swift */; };
+		35A9902B1E4C67C500B2D2CC /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A9902A1E4C67C500B2D2CC /* LogView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +34,11 @@
 		356E6D491E49B095007F76C9 /* ReaLogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReaLogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		356E6D4E1E49B095007F76C9 /* ReaLogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaLogTests.swift; sourceTree = "<group>"; };
 		356E6D501E49B095007F76C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		356E6D941E49BACF007F76C9 /* ReaLogWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaLogWindow.swift; sourceTree = "<group>"; };
-		356E6D951E49BACF007F76C9 /* ReaLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaLogViewController.swift; sourceTree = "<group>"; };
+		356E6D941E49BACF007F76C9 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		356E6D951E49BACF007F76C9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		356E6D961E49BACF007F76C9 /* FloatingBallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingBallView.swift; sourceTree = "<group>"; };
 		356E6D9A1E49BB7D007F76C9 /* ReaLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaLog.swift; sourceTree = "<group>"; };
+		35A9902A1E4C67C500B2D2CC /* LogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +82,10 @@
 			isa = PBXGroup;
 			children = (
 				356E6D9A1E49BB7D007F76C9 /* ReaLog.swift */,
-				356E6D941E49BACF007F76C9 /* ReaLogWindow.swift */,
-				356E6D951E49BACF007F76C9 /* ReaLogViewController.swift */,
+				356E6D941E49BACF007F76C9 /* Window.swift */,
+				356E6D951E49BACF007F76C9 /* ViewController.swift */,
 				356E6D961E49BACF007F76C9 /* FloatingBallView.swift */,
+				35A9902A1E4C67C500B2D2CC /* LogView.swift */,
 				356E6D931E49BABB007F76C9 /* Support Files */,
 			);
 			path = ReaLog;
@@ -219,9 +222,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				356E6D981E49BACF007F76C9 /* ReaLogViewController.swift in Sources */,
+				356E6D981E49BACF007F76C9 /* ViewController.swift in Sources */,
 				356E6D9B1E49BB7D007F76C9 /* ReaLog.swift in Sources */,
-				356E6D971E49BACF007F76C9 /* ReaLogWindow.swift in Sources */,
+				356E6D971E49BACF007F76C9 /* Window.swift in Sources */,
+				35A9902B1E4C67C500B2D2CC /* LogView.swift in Sources */,
 				356E6D991E49BACF007F76C9 /* FloatingBallView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

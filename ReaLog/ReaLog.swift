@@ -15,7 +15,7 @@ open class ReaLog {
     }
 
     open func enable() {
-        _window = ReaLogWindow(frame: UIScreen.main.bounds)
+        _window = Window(frame: UIScreen.main.bounds)
         _window?.isHidden = false
     }
 
@@ -23,5 +23,5 @@ open class ReaLog {
         _window = nil
     }
 
-    var _window: ReaLogWindow?
+    var _window: Window?
 }
