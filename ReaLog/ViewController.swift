@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         if _ballView.isHidden == false {
             return _ballView.frame
         } else {
-            return CGRect.zero
+            return _logView.frame
         }
     }
 
@@ -22,6 +22,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         self.view.addSubview(_ballView)
+        self.view.addSubview(_logView)
+
+        _logView.isHidden = true
 
         addEvents()
     }
@@ -29,7 +32,13 @@ class ViewController: UIViewController {
     func addEvents() {
         _ballView.tapAction = { [weak self] in
             guard let strongSelf = self else { return }
-//            strongSelf._ballView.isHidden = true
+            strongSelf._ballView.isHidden = true
+            strongSelf._logView.isHidden = false
+        }
+        _logView.minimizeAction = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf._logView.isHidden = true
+            strongSelf._ballView.isHidden = false
         }
     }
     

@@ -15,6 +15,9 @@
 		356E6D991E49BACF007F76C9 /* FloatingBallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D961E49BACF007F76C9 /* FloatingBallView.swift */; };
 		356E6D9B1E49BB7D007F76C9 /* ReaLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D9A1E49BB7D007F76C9 /* ReaLog.swift */; };
 		35A9902B1E4C67C500B2D2CC /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A9902A1E4C67C500B2D2CC /* LogView.swift */; };
+		35A9902D1E4D4FBD00B2D2CC /* MaximizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A9902C1E4D4FBD00B2D2CC /* MaximizeButton.swift */; };
+		35A9902F1E4D51E800B2D2CC /* MinimizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A9902E1E4D51E800B2D2CC /* MinimizeButton.swift */; };
+		35A990331E4D524100B2D2CC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A990321E4D524100B2D2CC /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,9 @@
 		356E6D961E49BACF007F76C9 /* FloatingBallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingBallView.swift; sourceTree = "<group>"; };
 		356E6D9A1E49BB7D007F76C9 /* ReaLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaLog.swift; sourceTree = "<group>"; };
 		35A9902A1E4C67C500B2D2CC /* LogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		35A9902C1E4D4FBD00B2D2CC /* MaximizeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaximizeButton.swift; sourceTree = "<group>"; };
+		35A9902E1E4D51E800B2D2CC /* MinimizeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinimizeButton.swift; sourceTree = "<group>"; };
+		35A990321E4D524100B2D2CC /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +87,14 @@
 		356E6D421E49B095007F76C9 /* ReaLog */ = {
 			isa = PBXGroup;
 			children = (
+				35A990321E4D524100B2D2CC /* Extensions.swift */,
 				356E6D9A1E49BB7D007F76C9 /* ReaLog.swift */,
 				356E6D941E49BACF007F76C9 /* Window.swift */,
 				356E6D951E49BACF007F76C9 /* ViewController.swift */,
 				356E6D961E49BACF007F76C9 /* FloatingBallView.swift */,
 				35A9902A1E4C67C500B2D2CC /* LogView.swift */,
+				35A9902C1E4D4FBD00B2D2CC /* MaximizeButton.swift */,
+				35A9902E1E4D51E800B2D2CC /* MinimizeButton.swift */,
 				356E6D931E49BABB007F76C9 /* Support Files */,
 			);
 			path = ReaLog;
@@ -222,7 +231,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35A9902F1E4D51E800B2D2CC /* MinimizeButton.swift in Sources */,
+				35A990331E4D524100B2D2CC /* Extensions.swift in Sources */,
 				356E6D981E49BACF007F76C9 /* ViewController.swift in Sources */,
+				35A9902D1E4D4FBD00B2D2CC /* MaximizeButton.swift in Sources */,
 				356E6D9B1E49BB7D007F76C9 /* ReaLog.swift in Sources */,
 				356E6D971E49BACF007F76C9 /* Window.swift in Sources */,
 				35A9902B1E4C67C500B2D2CC /* LogView.swift in Sources */,

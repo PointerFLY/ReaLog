@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol WindowDelegate {
-    func windowShouldAcceptTouch(window: Window) -> Bool
-}
-
 open class Window: UIWindow {
 
     public override init(frame: CGRect) {
