@@ -8,7 +8,9 @@
 
 import UIKit
 
-class LogView: UIVisualEffectView {
+class BoardView: UIVisualEffectView {
+
+    static let shared = BoardView()
 
     var minimizeAction: (() -> Void)?
 
@@ -22,9 +24,15 @@ class LogView: UIVisualEffectView {
 
         self.addSubview(_minimizeButton)
         self.addSubview(_maximizeButton)
+        self.addSubview(_textView)
 
         _minimizeButton.addTarget(self, action: #selector(minimizeButtonClicked(_:)), for: .touchUpInside)
         _maximizeButton.addTarget(self, action: #selector(maximizeButtonClicked(_:)), for: .touchUpInside)
+    }
+
+    func addLog(_ log: String) {
+        _textView.text.append(log)
+//        _textView.scrollRangeToVisible(NSRange(location: _textView.text.characters.count, length: 1))
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -38,7 +46,11 @@ class LogView: UIVisualEffectView {
 
     @objc
     private func maximizeButtonClicked(_ sender: MaximizeButton) {
-        self.frame = UIScreen.main.bounds
+        if self.frame == UIScreen.main.bounds {
+            self.frame = CGRect(x: 20, y: 160, width: 260, height: 260)
+        } else {
+            self.frame = UIScreen.main.bounds
+        }
     }
 
     private let _minimizeButton: MinimizeButton = {
@@ -49,6 +61,15 @@ class LogView: UIVisualEffectView {
     private let _maximizeButton: MaximizeButton = {
         let button = MaximizeButton(frame: CGRect(x: 45, y: 8, width: 28, height: 28))
         return button
+    }()
+
+    private let _textView: UITextView = {
+        let view = UITextView(frame: CGRect(x: 10, y: 40, width: 240, height: 210))
+        view.isEditable = false
+        view.backgroundColor = UIColor.red
+        view.textColor = UIColor.white
+        view.isSelectable = false
+        return view
     }()
 }
 

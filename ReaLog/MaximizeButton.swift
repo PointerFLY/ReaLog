@@ -41,6 +41,7 @@ private class MaximizeSymbol: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
+        self.isUserInteractionEnabled = false
     }
 
     required init?(coder aDecoder: NSCoder) {

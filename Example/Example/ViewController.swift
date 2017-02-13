@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import ReaLog
 
 class ViewController: UIViewController, WKNavigationDelegate {
 
@@ -17,6 +18,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
         _webView.frame = self.view.frame
 
         self.view.addSubview(_webView)
+
+        ReaLog.shared.addLog("sdff")
     }
 
     private var _webView: WKWebView = {

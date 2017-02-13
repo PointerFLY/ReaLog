@@ -16,12 +16,19 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
 
         let rightBarButtonItem = UIBarButtonItem(title: "停止", style: .plain, target: self, action: #selector(rightItemClicked(_:)))
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
+
+        NotificationCenter.default.addObserver(self, selector: #selector(handleMediaLibraryDidChange(_:)), name: NSNotification.Name.MPMediaLibraryDidChange, object: nil)
     }
 
     func rightItemClicked(_ sender: UIBarButtonItem) {
-        _player?.stop()
+        _player?.pause()
         _player = nil
         self.title = "Home"
+    }
+
+    func handleMediaLibraryDidChange(_ notification: Notification) {
+        print("changed")
+        print(notification.userInfo!)
     }
 
     @IBAction func pickMusicButtonClicked(_ sender: UIButton) {
@@ -29,13 +36,13 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         picker.prompt = "使用MPMediaPickerController选取音乐"
         picker.allowsPickingMultipleItems = true
         picker.delegate = self
-        picker.showsCloudItems = false
+        picker.showsCloudItems = true
         self.present(picker, animated: true, completion: nil)
     }
 
     @IBAction func queryMusicButtonClicked(_ sender: UIButton) {
-//        let query = MPMediaQuery(filterPredicates: nil)
-//        let items = query.items
+        //        let query = MPMediaQuery(filterPredicates: nil)
+        //        let items = query.items
 
 
     }
@@ -47,10 +54,21 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     }
 
     func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+        try! AVAudioSession.sharedInstance().setActive(true)
         mediaPicker.dismiss(animated: true, completion: nil)
-
         if let item = mediaItemCollection.items.first {
+            if item.hasProtectedAsset == true || item.value(forKey: MPMediaItemPropertyIsCloudItem) as! Bool == true {
+                self.title = item.title
+                try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                MPMusicPlayerController.applicationMusicPlayer().setQueue(with: mediaItemCollection)
+                MPMusicPlayerController.applicationMusicPlayer().play()
+
+                return
+            }
+
+
             let url = item.value(forProperty: MPMediaItemPropertyAssetURL) as! URL
+            print(url)
             let asset = AVURLAsset(url: url)
             let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A)
             exporter?.outputFileType = "com.apple.m4a-audio"
@@ -69,8 +87,10 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
                 switch exporter!.status {
                 case AVAssetExportSessionStatus.completed:
                     print("complete")
-                    self.title = item.albumTitle
-                    self._player = try! AVAudioPlayer(contentsOf: toUrl)
+                    self.title = item.title
+                    try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                
+                    self._player = AVPlayer(url: toUrl)
                     self._player?.play()
 
                 case AVAssetExportSessionStatus.failed:
@@ -82,7 +102,7 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
             })
         }
     }
-
-    private var _player: AVAudioPlayer? = nil
+    
+    private var _player: AVPlayer? = nil
 }
 

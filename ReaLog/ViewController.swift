@@ -8,13 +8,33 @@
 
 import UIKit
 
+class Window: UIWindow {
+
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        self.windowLevel = UIWindowLevelStatusBar + 100
+        self.rootViewController = _viewController
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private let _viewController = ViewController()
+
+    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        return _viewController.touchableArea.contains(point)
+    }
+}
+
 class ViewController: UIViewController {
 
     var touchableArea: CGRect {
         if _ballView.isHidden == false {
             return _ballView.frame
         } else {
-            return _logView.frame
+            return _boardView.frame
         }
     }
 
@@ -22,9 +42,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         self.view.addSubview(_ballView)
-        self.view.addSubview(_logView)
+        self.view.addSubview(_boardView)
 
-        _logView.isHidden = true
+        _boardView.isHidden = true
 
         addEvents()
     }
@@ -33,15 +53,15 @@ class ViewController: UIViewController {
         _ballView.tapAction = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf._ballView.isHidden = true
-            strongSelf._logView.isHidden = false
+            strongSelf._boardView.isHidden = false
         }
-        _logView.minimizeAction = { [weak self] in
+        _boardView.minimizeAction = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf._logView.isHidden = true
+            strongSelf._boardView.isHidden = true
             strongSelf._ballView.isHidden = false
         }
     }
     
     private let _ballView = FloatingBallView()
-    private let _logView = LogView()
+    private let _boardView = BoardView()
 }

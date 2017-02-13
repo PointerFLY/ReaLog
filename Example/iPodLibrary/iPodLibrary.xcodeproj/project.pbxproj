@@ -148,6 +148,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = GAMBUDTSDH;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					35A990521E4D8CAC00B2D2CC = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -412,6 +417,7 @@
 				35A9905E1E4D8CAC00B2D2CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		35A9905F1E4D8CAC00B2D2CC /* Build configuration list for PBXNativeTarget "iPodLibraryTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +426,7 @@
 				35A990611E4D8CAC00B2D2CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,10 +8,20 @@
 
 import UIKit
 
+protocol ReaLogDataSource {
+    func realogNeedsPreviousLog() -> String?
+}
+
 open class ReaLog {
 
+    open static let shared = ReaLog()
+
     public init() {
-        
+
+    }
+
+    open func addLog(_ log: String) {
+        BoardView.shared.addLog(log)
     }
 
     open func enable() {
@@ -23,5 +33,5 @@ open class ReaLog {
         _window = nil
     }
 
-    var _window: Window?
+    private var _window: Window?
 }
