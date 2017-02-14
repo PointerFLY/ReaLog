@@ -27,7 +27,7 @@ class HomeViewController: UIViewController, WKNavigationDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        ReaLog.shared.addLog("HomeViewController appeared.")
+        ReaLog.shared.addLog("HomeViewController appeared")
     }
 
     override func viewDidLayoutSubviews() {
@@ -46,29 +46,28 @@ class HomeViewController: UIViewController, WKNavigationDelegate {
 
     @IBAction func refreshButtonClicked(_ sender: UIButton) {
         _webView.reload()
-        ReaLog.shared.addLog("WebView is reloading.")
+        ReaLog.shared.addLog("WebView is reloading")
     }
 
     @IBAction func forwardButtonClicked(_ sender: UIButton) {
         _webView.goForward()
-        ReaLog.shared.addLog("WebView is going forward.")
+        ReaLog.shared.addLog("WebView is going forward")
     }
 
     @IBAction func backExpButtonClicked(_ sender: UIButton) {
         _webView.goBack()
-        ReaLog.shared.addLog("WebView is going back.")
+        ReaLog.shared.addLog("WebView is going back")
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        ReaLog.shared.addLog("\(webView.url!.absoluteString) finished loading.")
+        ReaLog.shared.addLog("\(webView.url!.absoluteString) finished loading")
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        ReaLog.shared.addLog("\(webView.url!.absoluteString) failed loading with error: \(error.localizedDescription).")
+        ReaLog.shared.addLog("\(webView.url!.absoluteString) failed loading with error: \(error.localizedDescription)")
     }
 
     private func loadWebsite(url: URL) {
-        _webView.stopLoading()
         var request = URLRequest(url: url)
         request.timeoutInterval = 10.0
         _webView.load(request)
