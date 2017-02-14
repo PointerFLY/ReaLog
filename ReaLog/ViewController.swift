@@ -12,7 +12,7 @@ class Window: UIWindow {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         self.windowLevel = UIWindowLevelStatusBar + 100
         self.rootViewController = _viewController
     }

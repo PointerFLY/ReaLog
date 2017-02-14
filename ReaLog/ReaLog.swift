@@ -14,7 +14,7 @@ open class ReaLog {
     open static let shared = ReaLog()
 
     public init() {
-
+        
     }
 
     open func addLog(_ log: String) {

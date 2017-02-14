@@ -12,26 +12,32 @@ import ReaLog
 
 class ViewController: UIViewController, WKNavigationDelegate {
 
+    @IBOutlet weak var _emptyView: UIView!
+    private let _webView = WKWebView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        _webView.frame = self.view.frame
-
         self.view.addSubview(_webView)
 
-        ReaLog.shared.addLog("sdff")
+        let url = URL(string: "https://aliexpress.com")!
+        var request = URLRequest(url: url)
+        request.timeoutInterval = 5.0
+        _webView.load(request)
     }
 
-    private var _webView: WKWebView = {
-        let view = WKWebView()
-        let url = URL(string: "https://m.taobao.com")
-        let request = URLRequest(url: url!)
-        view.load(request)
-        return view
-    }()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        _webView.frame = _emptyView.frame
+    }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        ReaLog.shared.addLog("WebView did finish")
+    }
 
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        ReaLog.shared.addLog("failed to load")
     }
 }
 
