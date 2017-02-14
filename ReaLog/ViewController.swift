@@ -63,5 +63,5 @@ class ViewController: UIViewController {
     }
     
     private let _ballView = FloatingBallView()
-    private let _boardView = BoardView()
+    private let _boardView = BoardView.shared
 }

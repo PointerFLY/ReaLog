@@ -8,9 +8,6 @@
 
 import UIKit
 
-protocol ReaLogDataSource {
-    func realogNeedsPreviousLog() -> String?
-}
 
 open class ReaLog {
 

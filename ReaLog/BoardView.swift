@@ -32,7 +32,7 @@ class BoardView: UIVisualEffectView {
 
     func addLog(_ log: String) {
         _textView.text.append(log)
-//        _textView.scrollRangeToVisible(NSRange(location: _textView.text.characters.count, length: 1))
+        _textView.scrollRangeToVisible(NSRange(location: _textView.text.characters.count, length: 1))
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -66,7 +66,7 @@ class BoardView: UIVisualEffectView {
     private let _textView: UITextView = {
         let view = UITextView(frame: CGRect(x: 10, y: 40, width: 240, height: 210))
         view.isEditable = false
-        view.backgroundColor = UIColor.red
+        view.backgroundColor = UIColor.clear
         view.textColor = UIColor.white
         view.isSelectable = false
         return view
