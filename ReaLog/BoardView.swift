@@ -69,6 +69,7 @@ class BoardView: UIVisualEffectView {
         view.backgroundColor = UIColor.clear
         view.textColor = UIColor.white
         view.isSelectable = false
+        view.layoutManager.allowsNonContiguousLayout = false
         return view
     }()
 }

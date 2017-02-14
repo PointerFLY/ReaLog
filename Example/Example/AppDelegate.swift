@@ -15,9 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+        
         ReaLog.shared.enable()
-        ReaLog.shared.addLog("This is a new log. 这是一个新的日志")
+        ReaLog.shared.addLog("Application finished launching.")
 
         return true
     }

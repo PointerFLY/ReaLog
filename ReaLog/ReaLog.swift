@@ -18,7 +18,7 @@ open class ReaLog {
     }
 
     open func addLog(_ log: String) {
-        BoardView.shared.addLog(log)
+        BoardView.shared.addLog(log + "\n")
     }
 
     open func enable() {

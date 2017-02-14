@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3501772F1E4EB44A004ED817 /* LogTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3501772E1E4EB44A004ED817 /* LogTextView.swift */; };
 		356E6D4A1E49B095007F76C9 /* ReaLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356E6D401E49B095007F76C9 /* ReaLog.framework */; };
 		356E6D4F1E49B095007F76C9 /* ReaLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356E6D4E1E49B095007F76C9 /* ReaLogTests.swift */; };
 		356E6D511E49B095007F76C9 /* ReaLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 356E6D431E49B095007F76C9 /* ReaLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,7 +30,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3501772E1E4EB44A004ED817 /* LogTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTextView.swift; sourceTree = "<group>"; };
 		356E6D401E49B095007F76C9 /* ReaLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReaLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		356E6D431E49B095007F76C9 /* ReaLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReaLog.h; sourceTree = "<group>"; };
 		356E6D441E49B095007F76C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 				35A9902A1E4C67C500B2D2CC /* BoardView.swift */,
 				35A9902C1E4D4FBD00B2D2CC /* MaximizeButton.swift */,
 				35A9902E1E4D51E800B2D2CC /* MinimizeButton.swift */,
-				3501772E1E4EB44A004ED817 /* LogTextView.swift */,
 				356E6D931E49BABB007F76C9 /* Support Files */,
 			);
 			path = ReaLog;
@@ -232,7 +229,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				35A9902F1E4D51E800B2D2CC /* MinimizeButton.swift in Sources */,
-				3501772F1E4EB44A004ED817 /* LogTextView.swift in Sources */,
 				35A990331E4D524100B2D2CC /* Extensions.swift in Sources */,
 				356E6D981E49BACF007F76C9 /* ViewController.swift in Sources */,
 				35A9902D1E4D4FBD00B2D2CC /* MaximizeButton.swift in Sources */,
