@@ -16,10 +16,11 @@ class BoardView: UIVisualEffectView {
         super.init(effect: UIBlurEffect(style: .dark))
         self.isUserInteractionEnabled = true
 
-        self.frame = CGRect(x: 20, y: 160, width: 260, height: 260)
+        self.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
+        self.bounds.size = CGSize(width: 260, height: 260)
         self.layer.cornerRadius = 12.0
         self.clipsToBounds = true
-    
+
         self.addSubview(logTextView)
         self.addSubview(_minimizeButton)
         self.addSubview(_maximizeButton)
@@ -119,17 +120,21 @@ class BoardView: UIVisualEffectView {
     @objc
     private func maximizeButtonClicked(_ sender: MaximizeButton) {
         _isMaximized = !_isMaximized
-        if !_isMaximized {
-            self.frame = _previousFrame
-            self.clipsToBounds = true
-            _dragAreaView.isUserInteractionEnabled = true
-            _scaleAreaView.isUserInteractionEnabled = true
-        } else {
+        if _isMaximized {
             _previousFrame = self.frame
-            self.frame = UIScreen.main.bounds
-            self.clipsToBounds = false
             _dragAreaView.isUserInteractionEnabled = false
             _scaleAreaView.isUserInteractionEnabled = false
+            UIView.animate(withDuration: 0.26) {
+                self.frame = UIScreen.main.bounds
+                self.clipsToBounds = false
+            }
+        } else {
+            _dragAreaView.isUserInteractionEnabled = true
+            _scaleAreaView.isUserInteractionEnabled = true
+            UIView.animate(withDuration: 0.26) {
+                self.frame = self._previousFrame
+                self.clipsToBounds = true
+            }
         }
     }
 

@@ -52,16 +52,36 @@ class ViewController: UIViewController {
     func addEvents() {
         _ballView.tapAction = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf._ballView.isHidden = true
             strongSelf.boardView.isHidden = false
+            strongSelf._ballView.isHidden = true
+
+            let previousCenter = strongSelf.boardView.center
+            strongSelf.boardView.center = strongSelf._ballView.center
+            let scale = strongSelf._ballView.bounds.size.width / strongSelf.boardView.bounds.size.width
+            strongSelf.boardView.transform = CGAffineTransform(scaleX: scale, y: scale)
+
+            UIView.animate(withDuration: 0.28, delay: 0.0, options: [.curveEaseInOut], animations: {
+                strongSelf.boardView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+                strongSelf.boardView.center = previousCenter
+                strongSelf.boardView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }, completion: nil)
         }
         boardView.minimizeAction = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.boardView.isHidden = true
-            strongSelf._ballView.isHidden = false
+
+            let previousCenter = strongSelf.boardView.center
+            UIView.animate(withDuration: 0.28, delay: 0.0, options: [.curveEaseIn], animations: {
+                strongSelf.boardView.center = strongSelf._ballView.center
+                let scale = strongSelf._ballView.bounds.size.width / strongSelf.boardView.bounds.size.width
+                strongSelf.boardView.transform = CGAffineTransform(scaleX: scale, y: scale)
+            }, completion: { _ in
+                strongSelf.boardView.isHidden = true
+                strongSelf._ballView.isHidden = false
+                strongSelf.boardView.center = previousCenter
+            })
         }
     }
-    
+
     private let _ballView = FloatingBallView()
     let boardView = BoardView()
 }
