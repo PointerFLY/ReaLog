@@ -2,7 +2,7 @@
 An interactive iOS log monitoring tool.
 
 ## Introduction
-![ReaLog](https://github.com/PointerFLY/warehouse/blob/master/gifs/ReaLog.gif)
+<img src="https://github.com/PointerFLY/warehouse/blob/master/gifs/ReaLog.gif" width="260">
 
 ReaLog shows log messages directly on screen, which helps developers to access infos when application is running.
 
