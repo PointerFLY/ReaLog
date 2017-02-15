@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         ReaLog.shared.enable()
         ReaLog.shared.addLog("Application finished launching")
-        
+
         return true
     }
 

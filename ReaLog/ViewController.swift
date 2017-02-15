@@ -12,8 +12,8 @@ class Window: UIWindow {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.windowLevel = UIWindowLevelStatusBar + 100
+
+        self.windowLevel = UIWindowLevelAlert + 100
         self.rootViewController = _viewController
     }
 
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         if _ballView.isHidden == false {
             return _ballView.frame
         } else {
-            return _boardView.frame
+            return boardView.frame
         }
     }
 
@@ -42,9 +42,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         self.view.addSubview(_ballView)
-        self.view.addSubview(_boardView)
+        self.view.addSubview(boardView)
 
-        _boardView.isHidden = true
+        boardView.isHidden = true
 
         addEvents()
     }
@@ -53,15 +53,15 @@ class ViewController: UIViewController {
         _ballView.tapAction = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf._ballView.isHidden = true
-            strongSelf._boardView.isHidden = false
+            strongSelf.boardView.isHidden = false
         }
-        _boardView.minimizeAction = { [weak self] in
+        boardView.minimizeAction = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf._boardView.isHidden = true
+            strongSelf.boardView.isHidden = true
             strongSelf._ballView.isHidden = false
         }
     }
     
     private let _ballView = FloatingBallView()
-    private let _boardView = BoardView.shared
+    let boardView = BoardView()
 }

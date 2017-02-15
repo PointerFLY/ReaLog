@@ -29,14 +29,17 @@ open class ReaLog {
     }
 
     open var logLength: Int {
-        return BoardView.shared.textView.text.characters.count
+        return _boardView.logTextView.text.characters.count
     }
 
     open func addLog(_ log: String) {
-        let textView = BoardView.shared.textView
+        let textView = _boardView.logTextView
         textView.text.append(log + (isAutoAddLineFeed ? "\n" : ""))
         textView.scrollRangeToVisible(NSRange(location: textView.text.characters.count, length: 1))
     }
 
     private var _window: Window?
+    private var _boardView: BoardView {
+        return (_window?.rootViewController as! ViewController).boardView
+    }
 }
