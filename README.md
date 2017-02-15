@@ -47,7 +47,7 @@ $ brew install carthage
 To integrate Alamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "PointerFLY/ReaLog" ~> 0.1
+github "PointerFLY/ReaLog" ~> 0.1.0
 ```
 Run `carthage update` to build the framework and drag the built `Alamofire.framework` into your Xcode project.
 
