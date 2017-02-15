@@ -21,8 +21,8 @@ ReaLog.shared.addLog("Any log message you want to show")
 You can either configure or disable ReaLog. 
 
 ```Swift
-ReaLog.shared.disable()
 ReaLog.shared.isAutoAddLineFeed = true
+ReaLog.shared.disable()
 ...
 ```
 
@@ -49,7 +49,7 @@ To integrate Alamofire into your Xcode project using Carthage, specify it in you
 ```ogdl
 github "PointerFLY/ReaLog" ~> 0.1.0
 ```
-Run `carthage update` to build the framework and drag the built `Alamofire.framework` into your Xcode project.
+Run `carthage update` to build the framework and drag the built `ReaLog.framework` into your Xcode project.
 
 ### Manually 
 Download project, open with Xcode, compile the ReaLog framework, retrieve the framework product, and embed it in any other Xcode project.
