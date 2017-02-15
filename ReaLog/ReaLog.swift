@@ -13,12 +13,10 @@ open class ReaLog {
 
     open static let shared = ReaLog()
 
-    public init() {
-        
-    }
+    open var isAutoAddLineFeed = true
 
-    open func addLog(_ log: String) {
-        BoardView.shared.addLog(log + "\n")
+    public init() {
+
     }
 
     open func enable() {
@@ -28,6 +26,16 @@ open class ReaLog {
 
     open func disable() {
         _window = nil
+    }
+
+    open var logLength: Int {
+        return BoardView.shared.textView.text.characters.count
+    }
+
+    open func addLog(_ log: String) {
+        let textView = BoardView.shared.textView
+        textView.text.append(log + (isAutoAddLineFeed ? "\n" : ""))
+        textView.scrollRangeToVisible(NSRange(location: textView.text.characters.count, length: 1))
     }
 
     private var _window: Window?

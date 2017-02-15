@@ -71,6 +71,8 @@ class HomeViewController: UIViewController, WKNavigationDelegate {
         var request = URLRequest(url: url)
         request.timeoutInterval = 10.0
         _webView.load(request)
+
+        ReaLog.shared.addLog("WebView is loading \(url.absoluteString)")
     }
 
     private let _aliexpURL = URL(string: "https://aliexpress.com")!

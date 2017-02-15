@@ -21,22 +21,60 @@ class BoardView: UIVisualEffectView {
         self.frame = CGRect(x: 20, y: 160, width: 260, height: 260)
         self.layer.cornerRadius = 12.0
         self.clipsToBounds = true
-
+    
         self.addSubview(_minimizeButton)
         self.addSubview(_maximizeButton)
-        self.addSubview(_textView)
+        self.addSubview(_dragAreaView)
+        self.addSubview(_scaleAreaView)
+        self.addSubview(textView)
 
-        _minimizeButton.addTarget(self, action: #selector(minimizeButtonClicked(_:)), for: .touchUpInside)
-        _maximizeButton.addTarget(self, action: #selector(maximizeButtonClicked(_:)), for: .touchUpInside)
+        addEvents()
     }
 
-    func addLog(_ log: String) {
-        _textView.text.append(log)
-        _textView.scrollRangeToVisible(NSRange(location: _textView.text.characters.count, length: 1))
+    private func addEvents() {
+        _minimizeButton.addTarget(self, action: #selector(minimizeButtonClicked(_:)), for: .touchUpInside)
+        _maximizeButton.addTarget(self, action: #selector(maximizeButtonClicked(_:)), for: .touchUpInside)
+
+        let dragPan = UIPanGestureRecognizer(target: self, action: #selector(handleDragPan(_:)))
+        self._dragAreaView.addGestureRecognizer(dragPan)
+
+        let scalePan = UIPanGestureRecognizer(target: self, action: #selector(handleScalePan(_:)))
+        self._scaleAreaView.addGestureRecognizer(scalePan)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private var _dragStartOffset = CGPoint.zero
+    private var _originalSize = CGSize.zero
+
+    @objc
+    private func handleDragPan(_ gesture: UIPanGestureRecognizer) {
+        if gesture.state == .began {
+            let position = gesture.location(in: self)
+            let offsetX = position.x - self.bounds.width / 2.0
+            let offsetY = position.y - self.bounds.height / 2.0
+            _dragStartOffset = CGPoint(x: offsetX, y: offsetY)
+        } else if gesture.state == .changed {
+            // Move with gesture
+            let location = gesture.location(in: self.superview)
+            self.center = CGPoint(x: location.x - _dragStartOffset.x, y: location.y - _dragStartOffset.y)
+        } else if gesture.state == .ended {
+
+        }
+    }
+
+    @objc
+    private func handleScalePan(_ gesture: UIPanGestureRecognizer) {
+        if gesture.state == .began {
+            _originalSize = self.bounds.size
+        } else if gesture.state == .changed {
+            let movement = gesture.translation(in: self)
+            self.frame.size = CGSize(width: _originalSize.width + movement.x, height: _originalSize.height + movement.y)
+        } else if gesture.state == .ended {
+            
+        }
     }
 
     @objc
@@ -63,7 +101,19 @@ class BoardView: UIVisualEffectView {
         return button
     }()
 
-    private let _textView: UITextView = {
+    private let _dragAreaView: UIView = {
+        let view = UIView(frame: CGRect(x: 80, y: 0, width: 200, height: 40))
+        view.backgroundColor = UIColor.red
+        return view
+    }()
+
+    private let _scaleAreaView: UIView = {
+        let view = UIView(frame: CGRect(x: 240, y: 240, width: 36, height: 36))
+        view.backgroundColor = UIColor.green
+        return view
+    }()
+
+    let textView: UITextView = {
         let view = UITextView(frame: CGRect(x: 10, y: 40, width: 240, height: 210))
         view.isEditable = false
         view.backgroundColor = UIColor.clear
