@@ -34,29 +34,29 @@ class MinimizeButton: UIButton {
     }
 
     private let _minimizeSymbol: MinimizeSymbol
-}
 
-private class MinimizeSymbol: UIView {
+    private class MinimizeSymbol: UIView {
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = UIColor.clear
-        self.isUserInteractionEnabled = false
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            self.backgroundColor = UIColor.clear
+            self.isUserInteractionEnabled = false
+        }
 
-    override func draw(_ rect: CGRect) {
-        let size = self.frame.size
-        let context = UIGraphicsGetCurrentContext()!
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
 
-        context.setLineWidth(1.0)
-        context.setStrokeColor(UIColor(r: 0, g: 0, b: 0, a: 0.6).cgColor)
+        override func draw(_ rect: CGRect) {
+            let size = self.frame.size
+            let context = UIGraphicsGetCurrentContext()!
 
-        context.move(to: CGPoint(x: size.width * 0.2, y: size.height / 2.0))
-        context.addLine(to: CGPoint(x: size.width * 0.8, y: size.height / 2.0))
-        context.strokePath()
+            context.setLineWidth(1.0)
+            context.setStrokeColor(UIColor(r: 0, g: 0, b: 0, a: 0.6).cgColor)
+
+            context.move(to: CGPoint(x: size.width * 0.2, y: size.height / 2.0))
+            context.addLine(to: CGPoint(x: size.width * 0.8, y: size.height / 2.0))
+            context.strokePath()
+        }
     }
 }
