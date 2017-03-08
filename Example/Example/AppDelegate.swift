@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+
         ReaLog.shared.enable()
         ReaLog.shared.addLog("Application finished launching")
         ReaLog.shared.isAutoAddLineFeed = true
@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ReaLog.shared.addLog("Application will terminate")
     }
-
-
+    
+    
 }
 
