@@ -16,8 +16,8 @@ class MaximizeButton: UIButton {
         _maximizeSymbol.center = CGPoint(x: frame.width / 2.0, y: frame.height / 2.0)
 
         super.init(frame: frame)
-        self.setImage(UIImage.imageWithColor(UIColor(r: 40, g: 207, b: 66), size: frame.size), for: .normal)
-        self.setImage(UIImage.imageWithColor(UIColor(r: 30, g: 160, b: 46), size: frame.size), for: .selected)
+        self.setImage(UIImage.rl_imageWithColor(UIColor(rl_r: 40, g: 207, b: 66), size: frame.size), for: .normal)
+        self.setImage(UIImage.rl_imageWithColor(UIColor(rl_r: 30, g: 160, b: 46), size: frame.size), for: .selected)
 
         self.addSubview(_maximizeSymbol)
     }
@@ -52,7 +52,7 @@ class MaximizeButton: UIButton {
             let context = UIGraphicsGetCurrentContext()!
 
             context.setLineWidth(1.0)
-            context.setStrokeColor(UIColor(r: 0, g: 0, b: 0, a: 0.6).cgColor)
+            context.setStrokeColor(UIColor(rl_r: 0, g: 0, b: 0, a: 0.6).cgColor)
 
             context.move(to: CGPoint(x: size.width * 0.2, y: size.height / 2.0))
             context.addLine(to: CGPoint(x: size.width * 0.8, y: size.height / 2.0))

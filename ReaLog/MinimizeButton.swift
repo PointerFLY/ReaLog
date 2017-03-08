@@ -16,8 +16,8 @@ class MinimizeButton: UIButton {
         _minimizeSymbol.center = CGPoint(x: frame.width / 2.0, y: frame.height / 2.0)
 
         super.init(frame: frame)
-        self.setImage(UIImage.imageWithColor(UIColor(r: 255, g: 196, b: 48), size: frame.size), for: .normal)
-        self.setImage(UIImage.imageWithColor(UIColor(r: 191, g: 145, b: 35), size: frame.size), for: .selected)
+        self.setImage(UIImage.rl_imageWithColor(UIColor(rl_r: 255, g: 196, b: 48), size: frame.size), for: .normal)
+        self.setImage(UIImage.rl_imageWithColor(UIColor(rl_r: 191, g: 145, b: 35), size: frame.size), for: .selected)
 
         self.addSubview(_minimizeSymbol)
     }
@@ -52,7 +52,7 @@ class MinimizeButton: UIButton {
             let context = UIGraphicsGetCurrentContext()!
 
             context.setLineWidth(1.0)
-            context.setStrokeColor(UIColor(r: 0, g: 0, b: 0, a: 0.6).cgColor)
+            context.setStrokeColor(UIColor(rl_r: 0, g: 0, b: 0, a: 0.6).cgColor)
 
             context.move(to: CGPoint(x: size.width * 0.2, y: size.height / 2.0))
             context.addLine(to: CGPoint(x: size.width * 0.8, y: size.height / 2.0))
