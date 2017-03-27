@@ -15,6 +15,8 @@ open class ReaLog {
 
     open var isAutoAddLineFeed = true
 
+    open var dateFormat: String? = "HH:mm:ss.SSS"
+
     public init() {
 
     }
@@ -34,7 +36,18 @@ open class ReaLog {
 
     open func addLog(_ log: String) {
         let textView = _boardView.logTextView
-        textView.text.append(log + (isAutoAddLineFeed ? "\n" : ""))
+
+        let lineFeed = isAutoAddLineFeed ? "\n" : ""
+
+        var dateString: String = ""
+        if let format = dateFormat {
+            let formatter = DateFormatter()
+            formatter.dateFormat = format
+            dateString = formatter.string(from: Date())
+            dateString  += "  "
+        }
+
+        textView.text.append(dateString + log + lineFeed)
         textView.scrollRangeToVisible(NSRange(location: textView.text.characters.count, length: 1))
     }
 
