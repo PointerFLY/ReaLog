@@ -31,7 +31,7 @@ open class ReaLog {
     }
 
     open var logLength: Int {
-        return _boardView.logTextView.text.characters.count
+        return _boardView.logTextView.text.count
     }
 
     open func addLog(_ log: String) {
@@ -48,7 +48,7 @@ open class ReaLog {
         }
 
         textView.text.append(dateString + log + lineFeed)
-        textView.scrollRangeToVisible(NSRange(location: textView.text.characters.count, length: 1))
+        textView.scrollRangeToVisible(NSRange(location: textView.text.count, length: 1))
     }
 
     private var _window: Window?
