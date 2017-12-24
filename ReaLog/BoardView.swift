@@ -21,11 +21,11 @@ class BoardView: UIVisualEffectView {
         self.layer.cornerRadius = 12.0
         self.clipsToBounds = true
 
-        self.addSubview(logTextView)
-        self.addSubview(_minimizeButton)
-        self.addSubview(_maximizeButton)
-        self.addSubview(_dragAreaView)
-        self.addSubview(_scaleAreaView)
+        self.contentView.addSubview(logTextView)
+        self.contentView.addSubview(_minimizeButton)
+        self.contentView.addSubview(_maximizeButton)
+        self.contentView.addSubview(_dragAreaView)
+        self.contentView.addSubview(_scaleAreaView)
 
         addEvents()
     }
