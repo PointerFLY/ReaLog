@@ -18,6 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ReaLog.shared.enable()
         ReaLog.shared.addLog("Application finished launching")
+        
+        let previousDate = Date();
+        for _ in 0..<100 {
+            let text = "Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary" +
+                "interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the" +
+                "background state interruptions (such as an incoming phone call or SMS message) or when tinterruptions (such as an incoming phone call or SMS" +
+                "message) or when t. interruptions (such as an incoming phone call or SMS message) or when it is feasible."
+            ReaLog.shared.addLog(text)
+        }
+        let newDate = Date();
+        print(newDate.timeIntervalSince(previousDate))
 
         return true
     }

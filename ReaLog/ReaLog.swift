@@ -40,10 +40,9 @@ open class ReaLog {
     }
 
     open func addLog(_ log: String) {
-        let textView = _boardView.logTextView
-
         let dateString = dateFormatter.string(from: Date())
-
+        
+        let textView = _boardView.logTextView
         textView.text.append(dateString + log + lineFeed)
         textView.scrollRangeToVisible(NSRange(location: textView.text.count, length: 1))
     }
