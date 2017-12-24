@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ReaLog.shared.enable()
         ReaLog.shared.addLog("Application finished launching")
-        ReaLog.shared.isAutoAddLineFeed = true
 
         return true
     }

@@ -12,11 +12,16 @@ import UIKit
 open class ReaLog {
 
     open static let shared = ReaLog()
-
-    open var isAutoAddLineFeed = true
-
-    open var dateFormat: String? = "HH:mm:ss.SSS"
-
+    
+    open var lineFeed = "\n"
+    
+    open var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss.SSS  "
+        return formatter
+    }()
+    
+    /// If needed, you can create multiple ReaLog window.
     public init() {
 
     }
@@ -37,15 +42,7 @@ open class ReaLog {
     open func addLog(_ log: String) {
         let textView = _boardView.logTextView
 
-        let lineFeed = isAutoAddLineFeed ? "\n" : ""
-
-        var dateString: String = ""
-        if let format = dateFormat {
-            let formatter = DateFormatter()
-            formatter.dateFormat = format
-            dateString = formatter.string(from: Date())
-            dateString  += "  "
-        }
+        let dateString = dateFormatter.string(from: Date())
 
         textView.text.append(dateString + log + lineFeed)
         textView.scrollRangeToVisible(NSRange(location: textView.text.count, length: 1))
