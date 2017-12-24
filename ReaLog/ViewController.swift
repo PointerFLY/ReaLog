@@ -57,23 +57,34 @@ class ViewController: UIViewController {
 
             let previousCenter = strongSelf.boardView.center
             strongSelf.boardView.center = strongSelf._ballView.center
-            let scale = strongSelf._ballView.bounds.size.width / strongSelf.boardView.bounds.size.width
-            strongSelf.boardView.transform = CGAffineTransform(scaleX: scale, y: scale)
-
+            let scaleX = strongSelf._ballView.bounds.size.width / strongSelf.boardView.bounds.size.width
+            let scaleY = strongSelf._ballView.bounds.size.height / strongSelf.boardView.bounds.size.height
+            strongSelf.boardView.transform = CGAffineTransform(scaleX: scaleX, y: scaleY)
+            strongSelf.boardView.contentView.alpha = 0.0
+            strongSelf.boardView.layer.cornerRadius = 12.0 / scaleX
+    
             UIView.animate(withDuration: 0.22, delay: 0.0, options: [.curveEaseInOut], animations: {
                 strongSelf.boardView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
                 strongSelf.boardView.center = previousCenter
                 strongSelf.boardView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                strongSelf.boardView.contentView.alpha = 1.0
+                strongSelf.boardView.layer.cornerRadius = 12.0
             }, completion: nil)
         }
         boardView.minimizeAction = { [weak self] in
             guard let strongSelf = self else { return }
 
             let previousCenter = strongSelf.boardView.center
+            strongSelf.boardView.contentView.alpha = 1.0
+            strongSelf.boardView.layer.cornerRadius = 12.0
+            
             UIView.animate(withDuration: 0.28, delay: 0.0, options: [.curveEaseInOut], animations: {
                 strongSelf.boardView.center = strongSelf._ballView.center
-                let scale = strongSelf._ballView.bounds.size.width / strongSelf.boardView.bounds.size.width
-                strongSelf.boardView.transform = CGAffineTransform(scaleX: scale, y: scale)
+                let scaleX = strongSelf._ballView.bounds.size.width / strongSelf.boardView.bounds.size.width
+                let scaleY = strongSelf._ballView.bounds.size.height / strongSelf.boardView.bounds.size.height
+                strongSelf.boardView.transform = CGAffineTransform(scaleX: scaleX, y: scaleY)
+                strongSelf.boardView.contentView.alpha = 0.0
+                strongSelf.boardView.layer.cornerRadius = 12.0 / scaleX
             }, completion: { _ in
                 strongSelf.boardView.isHidden = true
                 strongSelf._ballView.isHidden = false
