@@ -41,10 +41,14 @@ open class ReaLog {
 
     open func addLog(_ log: String) {
         let dateString = dateFormatter.string(from: Date())
+        let logString = dateString + log + lineFeed
         
-        let textView = _boardView.logTextView
-        textView.text.append(dateString + log + lineFeed)
-        textView.scrollRangeToVisible(NSRange(location: textView.text.count, length: 1))
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            let textView = strongSelf._boardView.logTextView
+            textView.text.append(logString)
+            textView.scrollRangeToVisible(NSRange(location: textView.text.count, length: 1))
+        }
     }
 
     private var _window: Window?
