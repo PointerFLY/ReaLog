@@ -97,6 +97,11 @@ class ViewController: UIViewController {
     
     private var _orientation: UIInterfaceOrientation?
     
+    private func isDistinctOrientation(left: UIInterfaceOrientation, right: UIInterfaceOrientation) -> Bool {
+        let potraits: [UIInterfaceOrientation] = [.portrait, .portraitUpsideDown, .unknown]
+        return potraits.contains(left) != potraits.contains(right)
+    }
+    
     @objc
     private func handleDeviceOrientationChanged(notification: Notification) {
         let orientation = UIApplication.shared.statusBarOrientation
@@ -104,7 +109,8 @@ class ViewController: UIViewController {
             _orientation = orientation
             return
         }
-        guard _orientation != orientation else {
+        guard isDistinctOrientation(left: _orientation!, right: orientation) else {
+            _orientation = orientation
             return
         }
         _orientation = orientation
