@@ -12,7 +12,7 @@ Add ReaLog to your project with only one line of code!
 ```Swift
 ReaLog.shared.enable()
 ```
-Then you can make visible logs anywhere, they'll show on the ReaLog window.
+Then you can make thread safe visible logs anywhere, they'll show on the ReaLog window. 
 
 ```Swift
 ReaLog.shared.addLog("Any log message you want to show")
@@ -21,15 +21,20 @@ ReaLog.shared.addLog("Any log message you want to show")
 You can either configure or disable ReaLog. 
 
 ```Swift
-ReaLog.shared.isAutoAddLineFeed = true
+ReaLog.shared.lineFeed = "\n"
+ReaLog.shared.dateFormatter.dateFormat = "HH:mm:ss"
+
+ReaLog.shared.window?.floatingBallFrame = CGRect(x: 20, y: 300, width: 60, height: 60)
+ReaLog.shared.window?.logViewFrame = CGRect(x: 100, y: 100, width: 200, height: 300)
+
 ReaLog.shared.disable()
 ...
 ```
 
 ## Requirements
 - iOS 8.0+ 
-- Xcode 8.2+
-- Swift 3.0+
+- Xcode 9.0+
+- Swift 4.0+
 
 ## Installation
 
@@ -46,8 +51,8 @@ $ brew install carthage
 
 To integrate Alamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
 
-```ogdl
-github "PointerFLY/ReaLog" ~> 0.1.0
+```
+github "PointerFLY/ReaLog" ~> 0.3.0
 ```
 Run `carthage update` to build the framework and drag the built `ReaLog.framework` into your Xcode project.
 
