@@ -84,9 +84,8 @@ class ViewController: UIViewController {
             strongSelf.boardView.layer.cornerRadius = 12.0 / scaleX
     
             UIView.animate(withDuration: 0.22, delay: 0.0, options: [.curveEaseInOut], animations: {
-                strongSelf.boardView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
                 strongSelf.boardView.center = previousCenter
-                strongSelf.boardView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                strongSelf.boardView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 strongSelf.boardView.contentView.alpha = 1.0
                 strongSelf.boardView.layer.cornerRadius = 12.0
             }, completion: nil)
@@ -109,6 +108,7 @@ class ViewController: UIViewController {
                 strongSelf.boardView.isHidden = true
                 strongSelf.ballView.isHidden = false
                 strongSelf.boardView.center = previousCenter
+                strongSelf.boardView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             })
         }
         
