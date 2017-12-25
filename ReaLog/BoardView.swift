@@ -113,7 +113,10 @@ class BoardView: UIVisualEffectView {
     private func minimizeButtonClicked(_ sender: MinimizeButton) {
         minimizeAction?()
     }
-
+    
+    var isMaximized: Bool {
+        return _isMaximized
+    }
     private var _isMaximized = false
     private var _previousFrame = CGRect.zero
 

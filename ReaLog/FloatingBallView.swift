@@ -20,7 +20,7 @@ class FloatingBallView: UIVisualEffectView {
         self.clipsToBounds = true
 
         // Initialize position
-        self.frame = CGRect(x: 1.0, y: UIScreen.main.bounds.height - _sideLength - 150, width: _sideLength, height: _sideLength)
+        self.frame = CGRect(x: 1.0, y: UIScreen.main.bounds.height / 2.0, width: _sideLength, height: _sideLength)
 
         addEvents()
     }

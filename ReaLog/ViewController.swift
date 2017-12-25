@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         addEvents()
     }
 
-    func addEvents() {
+    private func addEvents() {
         _ballView.tapAction = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.boardView.isHidden = false
@@ -90,6 +90,48 @@ class ViewController: UIViewController {
                 strongSelf._ballView.isHidden = false
                 strongSelf.boardView.center = previousCenter
             })
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDeviceOrientationChanged(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    
+    private var _orientation: UIInterfaceOrientation?
+    
+    @objc
+    private func handleDeviceOrientationChanged(notification: Notification) {
+        let orientation = UIApplication.shared.statusBarOrientation
+        guard _orientation != nil else {
+            _orientation = orientation
+            return
+        }
+        guard _orientation != orientation else {
+            return
+        }
+        _orientation = orientation
+    
+        switch orientation {
+        case .portrait, .portraitUpsideDown, .unknown:
+            let scaleBig = UIScreen.main.bounds.height / UIScreen.main.bounds.width
+            let scaleSmall = (1.0 / scaleBig)
+            _ballView.frame.origin.x = scaleSmall * _ballView.frame.origin.x
+            _ballView.frame.origin.y = scaleBig * _ballView.frame.origin.y
+            if boardView.isMaximized {
+                boardView.frame = self.view.frame
+            } else {
+                boardView.frame.origin.x = scaleSmall * boardView.frame.origin.x
+                boardView.frame.origin.y = scaleBig * boardView.frame.origin.y
+            }
+        case .landscapeLeft, .landscapeRight:
+            let scaleSmall = UIScreen.main.bounds.height / UIScreen.main.bounds.width
+            let scaleBig = (1.0 / scaleSmall)
+            _ballView.frame.origin.x = scaleBig * _ballView.frame.origin.x
+            _ballView.frame.origin.y = scaleSmall * _ballView.frame.origin.y
+            if boardView.isMaximized {
+                boardView.frame = self.view.frame
+            } else {
+                boardView.frame.origin.x = scaleBig * boardView.frame.origin.x
+                boardView.frame.origin.y = scaleSmall * boardView.frame.origin.y
+            }
         }
     }
 
