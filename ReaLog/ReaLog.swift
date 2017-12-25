@@ -13,6 +13,11 @@ open class ReaLog {
 
     open static let shared = ReaLog()
     
+    /// If needed, you can create multiple ReaLog window.
+    public init() {
+        
+    }
+    
     open var lineFeed = "\n"
     
     open var dateFormatter: DateFormatter = {
@@ -21,18 +26,15 @@ open class ReaLog {
         return formatter
     }()
     
-    /// If needed, you can create multiple ReaLog window.
-    public init() {
-
-    }
+    open private(set) var window: Window?
 
     open func enable() {
-        _window = Window(frame: UIScreen.main.bounds)
-        _window?.isHidden = false
+        window = Window(frame: UIScreen.main.bounds)
+        window?.isHidden = false
     }
 
     open func disable() {
-        _window = nil
+        window = nil
     }
 
     open var logLength: Int {
@@ -51,8 +53,7 @@ open class ReaLog {
         }
     }
 
-    private var _window: Window?
     private var _boardView: BoardView {
-        return (_window?.rootViewController as! ViewController).boardView
+        return (window?.rootViewController as! ViewController).boardView
     }
 }

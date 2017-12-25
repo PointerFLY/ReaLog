@@ -54,8 +54,8 @@ class FloatingBallView: UIVisualEffectView {
         if gesture.state == .began {
             // Start point may not be at the center
             let position = gesture.location(in: self)
-            let offsetX = position.x - _sideLength / 2.0
-            let offsetY = position.y - _sideLength / 2.0
+            let offsetX = position.x - self.frame.size.width / 2.0
+            let offsetY = position.y - self.frame.size.height / 2.0
             _startOffset = CGPoint(x: offsetX, y: offsetY)
         } else if gesture.state == .changed {
             let previousCenter = self.center
@@ -66,10 +66,10 @@ class FloatingBallView: UIVisualEffectView {
 
             // Prevent too much area of ball goes out of screen
             let intersection = UIScreen.main.bounds.intersection(self.frame)
-            if intersection.size.width < 50 {
+            if intersection.size.width < self.frame.size.width * 0.8 {
                 self.center.x = previousCenter.x
             }
-            if intersection.size.height < 50 {
+            if intersection.size.height < self.frame.size.height * 0.8 {
                 self.center.y = previousCenter.y
             }
         }

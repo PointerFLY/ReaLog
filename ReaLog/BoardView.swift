@@ -11,6 +11,7 @@ import UIKit
 class BoardView: UIVisualEffectView {
 
     var minimizeAction: (() -> Void)?
+    let minSize = CGSize(width: 200, height: 140)
 
     init() {
         super.init(effect: UIBlurEffect(style: .dark))
@@ -44,10 +45,9 @@ class BoardView: UIVisualEffectView {
         _dragAreaView.frame = CGRect(x: 80, y: 0, width: viewWidth - 80, height: 42)
         _scaleAreaView.frame = CGRect(x: viewWidth - 36, y: viewHeight - 36, width: 36, height: 36)
     }
-
+    
     private var _dragStartOffset = CGPoint.zero
     private var _originalSize = CGSize.zero
-    private let _minSize = CGSize(width: 200, height: 140)
 
     private func addEvents() {
         _minimizeButton.addTarget(self, action: #selector(minimizeButtonClicked(_:)), for: .touchUpInside)
@@ -98,10 +98,10 @@ class BoardView: UIVisualEffectView {
             var newHeight = _originalSize.height + movement.y
 
             // Prevent the edge goes out of screen
-            if newWidth < _minSize.width || newWidth + self.frame.origin.x >= UIScreen.main.bounds.width {
+            if newWidth < minSize.width || newWidth + self.frame.origin.x >= UIScreen.main.bounds.width {
                 newWidth = self.frame.size.width
             }
-            if newHeight < _minSize.height || newHeight + self.frame.origin.y >= UIScreen.main.bounds.height  {
+            if newHeight < minSize.height || newHeight + self.frame.origin.y >= UIScreen.main.bounds.height  {
                 newHeight = self.frame.size.height
             }
 

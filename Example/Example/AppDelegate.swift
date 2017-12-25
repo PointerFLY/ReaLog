@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ReaLog.shared.enable()
         ReaLog.shared.addLog("Application finished launching")
+        ReaLog.shared.window?.floatingBallFrame = CGRect(x: 20, y: 300, width: 60, height: 60)
+        ReaLog.shared.window?.logViewFrame = CGRect(x: 100, y: 100, width: 10, height: 10)
         
         let previousDate = Date();
         for _ in 0..<100 {
